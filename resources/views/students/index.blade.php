@@ -12,13 +12,14 @@
                         <a href="{{ url('/student/create') }}" class="btn btn-success btn-sm" title="Add New Data">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New Data
                         </a>
-                        <br/>
+                       
                         <br/>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>NIM</th>
                                         <th>Name</th>
                                         <th>Email Address</th>
                                         <th>City</th>
@@ -31,6 +32,7 @@
                                 @foreach($students as $index => $item)
                                     <tr>
                                         <th scope="row">{{ $index + $students->firstItem() }}</th>
+                                        <td>{{ $item->nim }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->address }}</td>
@@ -38,23 +40,24 @@
                                         <td>{{ $item->mobile }}</td>
  
                                         <td>
-                                        <div class="text-right">
-                                            <a href="{{ url('/student/' . $item->id) }}" title="View Data" class="mr-1">
-                                                <button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Detail</button>
-                                            </a>
-                                            
-                                            <a href="{{ url('/student/' . $item->id . '/edit') }}" title="Change Data" class="mr-1">
-                                                <button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"></i> Change</button>
-                                            </a>
+                                        <div class="text-right items-center">
+    <a href="{{ url('/student/' . $item->id) }}" title="View Data" class="mr-1">
+        <button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Detail</button>
+    </a>
+   
+    <a href="{{ url('/student/' . $item->id . '/edit') }}" title="Change Data" class="mr-1">
+        <button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"></i> Change</button>
+    </a>
+   
+    <form method="POST" action="{{ url('/student' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+        {{ method_field('DELETE') }}
+        {{ csrf_field() }}
+        <button type="submit" class="btn btn-danger btn-sm" title="Delete Data" onclick="return confirm(&quot;Sure delete the data?&quot;)">
+            <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+        </button>
+    </form>
+</div>
 
-                                            <form method="POST" action="{{ url('/student' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
-                                                {{ method_field('DELETE') }}
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Data" onclick="return confirm(&quot;Sure delete the data?&quot;)">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
-                                                </button>
-                                            </form>
-                                        </div>
                                     </td>
 
                                     </tr>

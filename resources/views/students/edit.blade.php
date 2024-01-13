@@ -10,6 +10,9 @@
         @method("PATCH")
         <input type="hidden" name="id" id="id" value="{{$students->id}}" id="id" />
 
+        <label>NIM</label></br>
+        <input type="number" name="nim" id="nim" value="{{$students->nim}}" class="form-control"></br>
+
         <label>Name</label></br>
         <input type="text" name="name" id="name" value="{{$students->name}}" class="form-control"></br>
 

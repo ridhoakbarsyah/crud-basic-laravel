@@ -10,5 +10,5 @@ class Student extends Model
 {
     protected $table = 'contacts';
     protected $primaryKey = 'id';
-    protected $fillable = ['name', 'email', 'address', 'program_study', 'mobile'];
+    protected $fillable = ['nim', 'name', 'email', 'address', 'program_study', 'mobile'];
 }

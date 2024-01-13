@@ -8,6 +8,8 @@
    
  
         <div class="card-body">
+        <h5 class="card-title">NIM : {{ $students->nim }}</h5>
+
         <h5 class="card-title">Name : {{ $students->name }}</h5>
 
         <p class="card-text">Email Adress: {{ $students->email }}</p>
