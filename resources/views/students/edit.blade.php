@@ -20,7 +20,7 @@
         <input type="text" name="address" id="address" value="{{$students->address}}" class="form-control"></br>
 
         <label>Study Program</label></br>
-        <input type="text" name="program_study" id="program_study" class="form-control"></br>
+        <input type="text" name="program_study" id="program_study" value="{{ $students->program_study }}" class="form-control"></br>
 
         <label>WhatsApp Number</label></br>
         <input type="number" name="mobile" id="mobile" value="{{$students->mobile}}" class="form-control"></br>
