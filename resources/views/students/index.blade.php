@@ -28,9 +28,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($students as $item)
+                                @foreach($students as $index => $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <th scope="row">{{ $index + $students->firstItem() }}</th>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->address }}</td>
