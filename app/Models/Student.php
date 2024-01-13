@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $table = 'contacts';
+    protected $table = 'students';
     protected $primaryKey = 'id';
     protected $fillable = ['nim', 'name', 'email', 'address', 'program_study', 'mobile'];
 }

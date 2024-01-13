@@ -27,6 +27,7 @@ class StudentController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
+            'nim' => 'required',
             'name' => 'required',
             'email' => 'required|email|string',
             'address' => 'required',
