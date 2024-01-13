@@ -9,8 +9,8 @@
                         <h2>CRUD BASIC LARAVEL</h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ url('/student/create') }}" class="btn btn-success btn-sm" title="Add New Student">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                        <a href="{{ url('/student/create') }}" class="btn btn-success btn-sm" title="Tambah Data Mahasiswa">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Tambah Data
                         </a>
                         <br/>
                         <br/>
@@ -18,12 +18,13 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th>No</th>
                                         <th>Name</th>
-                                        <th>Address</th>
-                                        <th>Program Study</th>
-                                        <th>Mobile</th>
-                                        <th>Actions</th>
+                                        <th>Email Address</th>
+                                        <th>City</th>
+                                        <th>Study Program</th>
+                                        <th>WhatsApp Number</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -31,18 +32,19 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->program_study }}</td>
+                                        <td>{{ $item->email }}</td>
                                         <td>{{ $item->address }}</td>
+                                        <td>{{ $item->program_study }}</td>
                                         <td>{{ $item->mobile }}</td>
  
                                         <td>
-                                            <a href="{{ url('/student/' . $item->id) }}" title="View Student"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/student/' . $item->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/student/' . $item->id) }}" title="View Data"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i>Detail</button></a>
+                                            <a href="{{ url('/student/' . $item->id . '/edit') }}" title="Change Data"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Change Data</button></a>
  
                                             <form method="POST" action="{{ url('/student' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Student" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Data" onclick="return confirm(&quot;Sure delete the data?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                             </form>
                                         </td>
                                     </tr>
