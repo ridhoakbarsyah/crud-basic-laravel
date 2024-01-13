@@ -38,19 +38,31 @@
                                         <td>{{ $item->mobile }}</td>
  
                                         <td>
-                                            <a href="{{ url('/student/' . $item->id) }}" title="View Data"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i>Detail</button></a>
-                                            <a href="{{ url('/student/' . $item->id . '/edit') }}" title="Change Data"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Change Data</button></a>
- 
+                                        <div class="text-right">
+                                            <a href="{{ url('/student/' . $item->id) }}" title="View Data" class="mr-1">
+                                                <button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Detail</button>
+                                            </a>
+                                            
+                                            <a href="{{ url('/student/' . $item->id . '/edit') }}" title="Change Data" class="mr-1">
+                                                <button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"></i> Change</button>
+                                            </a>
+
                                             <form method="POST" action="{{ url('/student' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Data" onclick="return confirm(&quot;Sure delete the data?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Data" onclick="return confirm(&quot;Sure delete the data?&quot;)">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                                                </button>
                                             </form>
-                                        </td>
+                                        </div>
+                                    </td>
+
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
+
+                            {{ $students->links() }}
                         </div>
  
                     </div>

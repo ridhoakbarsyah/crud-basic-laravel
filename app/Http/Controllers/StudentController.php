@@ -13,7 +13,7 @@ class StudentController extends Controller
 
     public function index(): View
     {
-        $students = Student::all();
+        $students = Student::paginate(5);
         return view('students.index')->with('students', $students);
     }
 
@@ -28,23 +28,11 @@ class StudentController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|string',
             'address' => 'required',
             'program_study' => 'required',
             'mobile' => 'required|numeric',
         ]);
-
-        // $student = new Student;
-        // $student->name = $request->name;
-        // $student->email = $request->email;
-        // $student->address = $request->address;
-        // $student->program_study = $request->program_study;
-        // $student->mobile = $request->mobile;
-        // $student->save();
-
-
-
-        // return redirect('student')->with('success', 'Student data has been saved successfully!');
 
         $input = $request->all();
         Student::create($input);
