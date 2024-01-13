@@ -26,6 +26,26 @@ class StudentController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'address' => 'required',
+            'program_study' => 'required',
+            'mobile' => 'required|numeric',
+        ]);
+
+        // $student = new Student;
+        // $student->name = $request->name;
+        // $student->email = $request->email;
+        // $student->address = $request->address;
+        // $student->program_study = $request->program_study;
+        // $student->mobile = $request->mobile;
+        // $student->save();
+
+
+
+        // return redirect('student')->with('success', 'Student data has been saved successfully!');
+
         $input = $request->all();
         Student::create($input);
         return redirect('student')->with('flash_message', 'Student Addedd!');

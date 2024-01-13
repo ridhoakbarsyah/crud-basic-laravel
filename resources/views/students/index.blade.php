@@ -9,8 +9,8 @@
                         <h2>CRUD BASIC LARAVEL</h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ url('/student/create') }}" class="btn btn-success btn-sm" title="Tambah Data Mahasiswa">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Tambah Data
+                        <a href="{{ url('/student/create') }}" class="btn btn-success btn-sm" title="Add New Data">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New Data
                         </a>
                         <br/>
                         <br/>

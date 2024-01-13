@@ -9,7 +9,7 @@
         {!! csrf_field() !!}
         <label>Name</label></br>
         <input type="text" name="name" id="name" class="form-control" autofocus></br>
-
+    
         <label>Email Address</label></br>
         <input type="email" name="email" id="email" class="form-control"></br>
 
@@ -27,5 +27,15 @@
    
   </div>
 </div>
+
+@if($errors->any())
+  <div class="alert alert-danger mt-3">
+    <ul>
+      @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
  
 @stop
