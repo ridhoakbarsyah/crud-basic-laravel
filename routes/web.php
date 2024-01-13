@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,7 @@ Route::get('/', function () {
 });
 
 Route::resource("/student", StudentController::class);
+
+Route::get('signin', [UserController::class, 'index'])->name('signin');
+
+Route::post('saveData', [UserController::class, 'saveData'])->name('saveData');
