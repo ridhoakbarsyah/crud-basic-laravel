@@ -33,9 +33,9 @@
 
         <label for="program_study">Program Studi</label></br>
         <select name="program_study" id="program_study" class="form-control">
-          @foreach($programStudi as $programStudi)
-          <option value="{{ $programStudi }}" {{ old('program_study') == $programStudi ? 'selected' : '' }}>
-            {{ $programStudi }}
+          @foreach($programStudi as $data)
+          <option value="{{ $data->id }}" {{ old('program_study') == $data ? 'selected' : '' }}>
+            {{ $data->program_study }}
           </option>
           @endforeach
         </select></br>

@@ -10,5 +10,10 @@ class Student extends Model
 {
     protected $table = 'students';
     protected $primaryKey = 'id';
-    protected $fillable = ['nim', 'name', 'email', 'address', 'program_study', 'mobile'];
+    protected $fillable = ['nim', 'name', 'email', 'address', 'prodi_id', 'mobile'];
+
+    public function prodi()
+    {
+        return $this->belongsTo(ProgramStudy::class, 'prodi_id');
+    }
 }

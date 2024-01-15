@@ -36,7 +36,7 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->address }}</td>
-                                        <td>{{ $item->program_study }}</td>
+                                        <td>{{ $item->prodi->program_study }}</td>
                                         <td>{{ $item->mobile }}</td>
  
                                         <td>
