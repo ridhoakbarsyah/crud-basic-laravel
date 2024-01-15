@@ -10,7 +10,7 @@
         <div class="card-body">
         <h5 class="card-title">NIM : {{ $students->nim }}</h5>
 
-        <h5 class="card-title">Name : {{ $students->name }}</h5>
+        <p class="card-text">Name : {{ $students->name }}</p>
 
         <p class="card-text">Email Adress: {{ $students->email }}</p>
 
@@ -20,8 +20,6 @@
         
         <p class="card-text">WhatsApp Number : {{ $students->mobile }}</p>
   </div>
-       
-    </hr>
   
   </div>
 </div>
