@@ -20,7 +20,17 @@ class StudentController extends Controller
 
     public function create(): View
     {
-        return view('students.create');
+        $programStudi = [
+            'Teknik Informatika',
+            'Rekayasa Perangkat Lunak',
+            'Sistem Informasi',
+            'Sains Data',
+            // Tambahkan program studi lainnya sesuai kebutuhan
+        ];
+
+        return view('students.create', compact('programStudi'));
+
+        // return view('students.create');
     }
 
 
