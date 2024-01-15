@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StudentController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +21,9 @@ Route::get('/', function () {
 
 Route::resource("/student", StudentController::class);
 
-Route::get('signin', [UserController::class, 'index'])->name('signin');
-
-Route::post('saveData', [UserController::class, 'saveData'])->name('saveData');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
+    Route::get('/register', [AuthController::class, 'register'])->name('register');
+    Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
+});
