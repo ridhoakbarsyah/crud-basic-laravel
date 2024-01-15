@@ -22,8 +22,18 @@
       <label>Alamat</label><br>
       <input type="text" name="address" id="address" value="{{$students->address}}" class="form-control"><br>
 
-      <label>Program Studi</label><br>
-      <input type="text" name="program_study" id="program_study" value="{{ $students->program_study }}" class="form-control"><br>
+      <label for="program_study">Program Studi</label></br>
+      <select name="program_study" id="program_study" class="form-control">
+        @foreach($programStudi as $data)
+        <option value="{{ $data->id }}" {{ old('program_study') == $data->id ? 'selected' : '' }} >
+          {{ $data->program_study }}
+        </option>
+        @endforeach
+      </select></br>
+        
+      @if($errors->has('program_study'))
+        <p class="text-danger">{{ $errors->first('program_study') }}</p>
+        @endif
 
       <label>Nomor WhatsApp</label><br>
       <input type="number" name="mobile" id="mobile" value="{{$students->mobile}}" class="form-control"><br>

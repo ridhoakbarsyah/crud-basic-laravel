@@ -50,6 +50,7 @@ class StudentController extends Controller
 
         $input = $request->all();
         // dd($validated['program_study']);
+
         Student::create([
             'nim' => $validated['nim'],
             'name' => $validated['name'],
@@ -69,15 +70,29 @@ class StudentController extends Controller
 
     public function edit(string $id): View
     {
+        $programStudi = ProgramStudy::all();
+
         $student = Student::find($id);
-        return view('students.edit')->with('students', $student);
+
+        return view('students.edit', compact('programStudi'))->with('students', $student);
     }
 
-    public function update(Request $request, string $id): RedirectResponse
+    public function update(Request $request, Student $student): RedirectResponse
     {
-        $student = Student::find($id);
+
+        // $student = Student::find($id);
         $input = $request->all();
-        $student->update($input);
+        // $student->update($input);
+        $student->update([
+            'nim' => $input['nim'],
+            'name' => $input['name'],
+            'email' => $input['email'],
+            'address' => $input['address'],
+            'prodi_id' => $input['program_study'],
+            'mobile' => $input['mobile']
+        ]);
+        // dd($request);
+
         return redirect('student')->with('flash_message', 'student Updated!');
     }
 
