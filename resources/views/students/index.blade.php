@@ -20,11 +20,11 @@
                                     <tr>
                                         <th>No</th>
                                         <th>NIM</th>
-                                        <th>Name</th>
-                                        <th>Email Address</th>
-                                        <th>City</th>
-                                        <th>Study Program</th>
-                                        <th>WhatsApp Number</th>
+                                        <th>Nama</th>
+                                        <th>Email</th>
+                                        <th>Alamat</th>
+                                        <th>Program Studi</th>
+                                        <th>Nomor WhatsApp</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -46,14 +46,14 @@
                                             </a>
                                             
                                             <a href="{{ url('/student/' . $item->id . '/edit') }}" title="Change Data" class="mr-1">
-                                                <button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"></i> Change</button>
+                                                <button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"></i> Ubah</button>
                                             </a>
                                             
                                             <form method="POST" action="{{ url('/student' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete Data" onclick="return confirm(&quot;Sure delete the data?&quot;)">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i> Hapus
                                                 </button>
                                             </form>
                                         </div>
