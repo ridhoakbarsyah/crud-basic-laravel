@@ -6,7 +6,11 @@
 </head>
 <body>
   
-<div class="container">
+<div class="container py-5">
+    @if (Auth::check())
+        @include('component/menu')
+    @endif
+    @include('sesi/index')
     @yield('content')
 </div>
    
