@@ -2,7 +2,16 @@
 @section('content')
     <div class="container">
         <div class="row">
- 
+            @if(auth()->check()) {{-- Pastikan pengguna masuk --}}
+            <p class="mb-2 justify-content-center">Selamat datang, {{ auth()->user()->name }}</p>
+            @endif
+            
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom mr-4 ml-4">
+                <ul class="nav nav-pills mb-2">
+                    <li class="nav-item"><a href="/sesi/logout" class="nav-link">Logout</a></li>
+                </ul>
+            </header>
+
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">
