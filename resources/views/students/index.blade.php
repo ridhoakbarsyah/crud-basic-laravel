@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             @if(auth()->check()) {{-- Pastikan pengguna masuk --}}
-            <p class="mb-2 justify-content-center">Selamat datang, {{ auth()->user()->name }}</p>
+            <p class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom mr-4 ml-4">Hi.. Selamat datang, {{ auth()->user()->name }}</p>
             @endif
             
             <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom mr-4 ml-4">

@@ -21,9 +21,6 @@ Route::get('/sesi', function () {
 
 Route::resource("/student", StudentController::class)->middleware('isLogin');
 
-// ->middleware('isLogin')
-// ->middleware('isTamu')
-
 Route::get('/sesi', [SessionController::class, 'index'])->middleware('isTamu');
 Route::post('/sesi/login', [SessionController::class, 'login'])->middleware('isTamu');
 
