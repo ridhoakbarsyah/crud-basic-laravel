@@ -11,7 +11,7 @@
       <input type="hidden" name="id" value="{{$students->id}}" />
 
       <label>NIM</label><br>
-      <input type="number" name="nim" id="nim" value="{{$students->nim}}" class="form-control"><br>
+      <input type="number" name="nim" id="nim" value="{{$students->nim}}" class="form-control" maxlength="8"><br>
 
       <label>Nama</label><br>
       <input type="text" name="name" id="name" value="{{$students->name}}" class="form-control"><br>
@@ -37,7 +37,7 @@
         @endif
 
       <label>Nomor WhatsApp</label><br>
-      <input type="number" name="mobile" id="mobile" value="{{$students->mobile}}" class="form-control"><br>
+      <input type="number" name="mobile" id="mobile" value="{{$students->mobile}}" class="form-control" maxlength="12"><br>
 
       <div class="button-container">
         <input type="submit" value="Update" class="btn btn-success">
@@ -49,8 +49,31 @@
   </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-  function goBack() {
+  $(document).ready(function() {
+    $('#mobile').on('input', function() {
+      var maxLength = 12;
+      var inputValue = $(this).val();
+
+      if (inputValue.length > maxLength) {
+        $(this).val(inputValue.slice(0, maxLength));
+      }
+    });
+  });
+
+   $(document).ready(function() {
+    $('#nim').on('input', function() {
+      var maxLength = 8;
+      var inputValue = $(this).val();
+
+      if (inputValue.length > maxLength) {
+        $(this).val(inputValue.slice(0, maxLength));
+      }
+    });
+  });
+
+   function goBack() {
         window.history.back();
     }
 </script>

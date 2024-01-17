@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use App\Models\Student;
 use Illuminate\View\View;
 use App\Models\ProgramStudy;
@@ -21,19 +20,9 @@ class StudentController extends Controller
 
     public function create(): View
     {
-        // $programStudi = [
-        //     'Teknik Informatika',
-        //     'Rekayasa Perangkat Lunak',
-        //     'Sistem Informasi',
-        //     'Sains Data',
-        //     // Tambahkan program studi lainnya sesuai kebutuhan
-        // ];
-
         $programStudi = ProgramStudy::all();
 
         return view('students.create', compact('programStudi'));
-
-        // return view('students.create');
     }
 
 
@@ -49,7 +38,6 @@ class StudentController extends Controller
         ]);
 
         $input = $request->all();
-        // dd($validated['program_study']);
 
         Student::create([
             'nim' => $validated['nim'],
@@ -79,10 +67,8 @@ class StudentController extends Controller
 
     public function update(Request $request, Student $student): RedirectResponse
     {
-
-        // $student = Student::find($id);
         $input = $request->all();
-        // $student->update($input);
+        
         $student->update([
             'nim' => $input['nim'],
             'name' => $input['name'],
@@ -91,7 +77,7 @@ class StudentController extends Controller
             'prodi_id' => $input['program_study'],
             'mobile' => $input['mobile']
         ]);
-        // dd($request);
+        
 
         return redirect('student')->with('flash_message', 'student Updated!');
     }

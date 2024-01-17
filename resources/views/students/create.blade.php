@@ -8,7 +8,7 @@
       <form action="{{ url('student') }}" method="post">
         {!! csrf_field() !!}
         <label>NIM</label></br>
-        <input type="number" name="nim" id="nim" class="form-control" autofocus value="{{ old('nim') }}"  maxlength="10"></br>
+        <input type="number" name="nim" id="nim" class="form-control" autofocus value="{{ old('nim') }}" maxlength="8"></br>
         @if($errors->has('nim'))
           <p class="text-danger">{{ $errors->first('nim') }}</p>
         @endif
@@ -75,7 +75,7 @@
 
    $(document).ready(function() {
     $('#nim').on('input', function() {
-      var maxLength = 10;
+      var maxLength = 8;
       var inputValue = $(this).val();
 
       if (inputValue.length > maxLength) {
