@@ -1,9 +1,10 @@
 @extends('students.layout')
 @section('content')
+
     <div class="container">
         <div class="row">
             @if(auth()->check()) {{-- Pastikan pengguna masuk --}}
-            <p class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom mr-4 ml-4">Hi.. Selamat datang, {{ auth()->user()->name }}</p>
+            <p class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom mr-4 ml-4">Selamat datang, {{ auth()->user()->name }}</p>
             @endif
             
             <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom mr-4 ml-4">
@@ -15,16 +16,14 @@
             <div class="col-md-9">
                 <div class="card">
                     <div class="card-header">
-                        <h2>CRUD BASIC LARAVEL</h2>
+                        <h2>Data Mahasiswa</h2>
                     </div>
                     <div class="card-body">
                         <a href="{{ url('/student/create') }}" class="btn btn-success btn-sm" title="Add New Data">
                             <i class="fa fa-plus" aria-hidden="true"></i> Tambah Data
                         </a>
-                       
-                        <br/>
-                        <div class="table-responsive">
-                            <table class="table">
+                        <div class="table-responsive mb-4 mr-4 mt-4 ml-4">
+                            <table class="table" id="myTable">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -34,13 +33,13 @@
                                         <th>Alamat</th>
                                         <th>Program Studi</th>
                                         <th>Nomor WhatsApp</th>
-                                        <th>Action</th>
+                                        <th class="mr-4 mt-4 ml-4 mb-4">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($students as $index => $item)
                                     <tr>
-                                        <th scope="row">{{ $index + $students->firstItem() }}</th>
+                                        <th scope="row">{{ $index + 1 }}</th>
                                         <td>{{ $item->nim }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
@@ -50,19 +49,18 @@
  
                                         <td>
                                         <div class="text-right items-center">
-                                            <a href="{{ url('/student/' . $item->id) }}" title="View Data" class="mr-1">
-                                                <button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Detail</button>
+                                            <a href="{{ url('/student/' . $item->id) }}" title="View Data" class="btn btn-info btn-sm mr-2 ml-2 mb-2">
+                                                Detail
+                                            </a>    
+                                            <a href="{{ url('/student/' . $item->id . '/edit') }}" title="Change Data" class="btn btn-primary btn-sm mr-2 ml-2 mb-2">
+                                                Ubah
                                             </a>
-                                            
-                                            <a href="{{ url('/student/' . $item->id . '/edit') }}" title="Change Data" class="mr-1">
-                                                <button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"></i> Ubah</button>
-                                            </a>
-                                            
+    
                                             <form method="POST" action="{{ url('/student' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-danger btn-sm" title="Delete Data" onclick="return confirm(&quot;Sure delete the data?&quot;)">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i> Hapus
+                                                    Hapus
                                                 </button>
                                             </form>
                                         </div>
@@ -72,7 +70,7 @@
                             </tbody>
                         </table>
                         
-                        {{ $students->links() }}
+                        {{-- {{ $students->links() }} --}}
                     </div>
                 
                 </div>
@@ -80,4 +78,5 @@
         </div>
     </div>
 </div>
+
 @endsection
