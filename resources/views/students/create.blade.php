@@ -31,26 +31,30 @@
           <p class="text-danger">{{ $errors->first('address') }}</p>
         @endif
 
-        <label for="program_study">Program Studi</label></br>
-        <select name="program_study" id="program_study" class="form-control">
+        <label for="program_study">Program Studi</label><br>
+        <select name="program_study" id="program_study" class="form-control" required>
+          <option value="" selected disabled>-- Pilih Program Studi --</option>
           @foreach($programStudi as $data)
-          <option value="{{ $data->id }}" {{ old('program_study') == $data ? 'selected' : '' }}>
+          <option value="{{ $data->id }}" {{ old('program_study') == $data->id ? 'selected' : '' }}>
             {{ $data->program_study }}
           </option>
           @endforeach
-        </select></br>
+        </select><br>
         
         @if($errors->has('program_study'))
         <p class="text-danger">{{ $errors->first('program_study') }}</p>
         @endif
-
+        
         <label>Nomor WhatsApp</label></br>
         <input type="number" name="mobile" id="mobile" class="form-control" value="{{ old('mobile') }}" maxlength="12"></br>
         @if($errors->has('mobile'))
           <p class="text-danger">{{ $errors->first('mobile') }}</p>
         @endif
         
-        <input type="submit" value="Save" class="btn btn-success"></br>
+        <div class="button-container">
+        <input type="submit" value="Save" class="btn btn-success">
+        <input type="submit" value="Back" class="btn btn-secondary" onclick="goBack()">
+    </div>
     </form>
    
   </div>
@@ -79,7 +83,10 @@
       }
     });
   });
+
+   function goBack() {
+        window.history.back();
+    }
 </script>
 
- 
 @stop
