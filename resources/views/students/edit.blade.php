@@ -24,7 +24,6 @@
 
       <label for="program_study">Program Studi</label><br>
         <select name="program_study" id="program_study" class="form-control" required>
-          <option value="" selected disabled>-- Pilih Program Studi --</option>
           @foreach($programStudi as $data)
           <option value="{{ $data->id }}" {{ old('program_study') == $data->id ? 'selected' : '' }}>
             {{ $data->program_study }}
