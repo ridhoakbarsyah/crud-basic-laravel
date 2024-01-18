@@ -18,8 +18,8 @@
 
             <div class="mb-4">
                 <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
-                <input type="password" name="password" class="w-full p-2 border rounded-md">
-                <a href="#" class="text-blue-500 hover:underline">Forgot Password?</a>
+                <input type="password" name="password" class="w-full p-2 border rounded-md"  maxlength="6">
+                <a href="/forgot-password" class="text-blue-500 hover:underline">Forgot Password?</a>
             </div>
     
             <div class="mb-2">

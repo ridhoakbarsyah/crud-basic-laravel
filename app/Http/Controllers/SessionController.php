@@ -22,7 +22,7 @@ class SessionController extends Controller
         Session::flash('email', $request->email);
         $request->validate([
             'email' => 'required',
-            'password' => 'required'
+            'password' => 'required|min:6'
         ], [
             'email.required' => 'Email harus di isi',
             'password.required' => 'Password harus di isi',
