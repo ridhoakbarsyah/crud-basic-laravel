@@ -21,7 +21,7 @@
                 </div>
             @endif
 
-            <h1 class="text-2xl font-bold mb-4 text-center">Forgot Password</h1>
+            <h1 class="text-2xl font-bold mb-4 text-center">Forgot Password?</h1>
         <form action="{{ route('password.email') }}" method="POST">
             @csrf
             <div class="mb-4">
@@ -30,7 +30,7 @@
                 <input type="email" value="" name="email" class="w-full p-2 border rounded-md">
             </div>
             <div class="mb-2">
-                <button name="submit" value="Request Passwor Reset" type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                <button name="submit" value="Request Password Reset" type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
                     Reset Password
                 </button>
             </div>

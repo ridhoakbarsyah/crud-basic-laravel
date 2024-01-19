@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\StudentController;
 use App\Models\User;
@@ -29,7 +30,7 @@ Route::get('/', function () {
 
 Route::resource("/student", StudentController::class)->middleware('isLogin');
 
-Route::get('/sesi', [SessionController::class, 'index'])->middleware('isTamu');
+Route::get('/masuk', [SessionController::class, 'index'])->name('sesi')->middleware('isTamu');
 Route::post('/sesi/login', [SessionController::class, 'login'])->middleware('isTamu');
 
 Route::get('/sesi/register', [SessionController::class, 'register'])->middleware('isTamu');
@@ -58,12 +59,11 @@ Route::get('/reset-password/{token}', function ($token) {
     // return 'berhasil mengirim email';
 })->middleware('guest')->name('password.reset');
 
-
 Route::post('/reset-password', function (Request $request) {
     $request->validate([
         'token' => 'required',
         'email' => 'required|email',
-        'password' => 'required|min:8|confirmed',
+        'password' => 'required|min:6|confirmed',
     ]);
 
     $status = Password::reset(
@@ -87,3 +87,5 @@ Route::post('/reset-password', function (Request $request) {
 Route::get('sesi/google', [GoogleController::class, 'redirectToGoogle']);
 
 Route::get('sesi/google', [GoogleController::class, 'handleGoogleCallback']);
+
+Route::get('send-email', [SendEmailController::class, 'index']);

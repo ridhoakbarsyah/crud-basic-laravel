@@ -26,17 +26,19 @@
             @csrf
             
             <div class="mb-4">
-                <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
-                <input type="password" value="" name="password" class="w-full p-2 border rounded-md">
+                <input type="text" name="token" value="{{ request()->token}}">
+                <input type="email" name="email" value="{{ request()->email }}">
+                <label for="password" class="block text-sm font-medium text-gray-600" maxlength="6">Password</label>
+                <input type="text" name="password" class="w-full p-2 border rounded-md">
             </div>
 
             <div class="mb-4">
-                <label for="password_confirmation" class="block text-sm font-medium text-gray-600">Password Confirmation</label>
-                <input type="password_confirmation" value="" name="password_confirmation" class="w-full p-2 border rounded-md">
+                <label for="password" class="block text-sm font-medium text-gray-600" maxlength="6">Password Confirmation</label>
+                <input type="text" name="password_confirmation" class="w-full p-2 border rounded-md">
             </div>
 
             <div class="mb-2">
-                <button name="submit" value="Request Passwor Reset" type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+                <button name="submit" value="Password Reset" type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
                     Reset Password
                 </button>
             </div>
